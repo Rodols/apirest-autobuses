@@ -1,6 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BusController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +14,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+GET:_Conseguir datos o recursos
+*POST Guardar datos o recursos o hacer logica desde formulario
+*PUT: Actualizar datos o recursos
+*DELETE: Eliminar datos o recursos
+*/
+
+
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 
-Route::get('/pruebas/{nombre?}', function ($nombre = null) {
-    $texto = '<h1>welcome Rodo el.......</h1>';
-    $texto .= 'Nombre: ' . $nombre;
-    return $texto;
-});
+//Rutas del api
+Route::post('/api/register', [UserController::class,'register']);
+Route::post('/api/login', [UserController::class,'login']);
+//Route::get('/travel/pruebas', 'BusTravelController@pruebas');
+//Route::get('/assignments/pruebas', 'BusAssignmentsController@pruebas');
+//Route::get('/stops/pruebas', 'BusStopController@pruebas');
+//Route::get('/route/pruebas', 'BusRouteController@pruebas');
+Route::get('api/buses', [BusController::class,'buses']);

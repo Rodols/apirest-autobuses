@@ -18,8 +18,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
         'email',
-        'password',
+        'role'
     ];
 
     /**
@@ -40,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Relacion de uno a uno
+    public function bus()
+    {
+        return $this->hasOne('App\buses');
+    }
 }
