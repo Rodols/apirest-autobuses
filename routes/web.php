@@ -33,6 +33,7 @@ Route::get('/', function () {
 //Rutas del api
 Route::post('/api/register', [UserController::class,'register']);
 Route::post('/api/login', [UserController::class,'login']);
+Route::put('/api/user/update', [UserController::class,'update']);
 //Route::get('/travel/pruebas', 'BusTravelController@pruebas');
 //Route::get('/assignments/pruebas', 'BusAssignmentsController@pruebas');
 //Route::get('/stops/pruebas', 'BusStopController@pruebas');
